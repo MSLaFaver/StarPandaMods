@@ -1,0 +1,139 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4t1e3midlfm3"]
+
+[ext_resource type="Script" path="res://mods-unpacked/StarPanda-ChallengePack/util/config.gd" id="1_ul10s"]
+[ext_resource type="FontFile" uid="uid://vhj3kkn6yn8o" path="res://fonts/fake receipt.otf" id="7_7yqn7"]
+[ext_resource type="Script" path="res://scripts/ButtonClass.gd" id="8_dan4x"]
+
+[node name="config" type="Control" node_paths=PackedStringArray("button_class_mode", "button_class_items", "button_class_shuffle", "button_class_turn")]
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 40.0
+script = ExtResource("1_ul10s")
+button_class_mode = NodePath("true button_challengepack_mode custom/button class_challengepack_mode custom")
+button_class_items = NodePath("true button_challengepack_items custom/button class_challengepack_items custom")
+button_class_shuffle = NodePath("true button_challengepack_shuffle custom/button class_challengepack_shuffle custom")
+button_class_turn = NodePath("true button_challengepack_turn custom/button class_challengepack_turn custom")
+
+[node name="button_challengepack_mode custom" type="Label" parent="."]
+layout_mode = 0
+offset_top = 165.0
+offset_right = 960.0
+offset_bottom = 204.0
+scale = Vector2(0.760005, 1)
+pivot_offset = Vector2(480, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_7yqn7")
+theme_override_font_sizes/font_size = 26
+text = "SHELL VISIBILITY: DEFAULT"
+horizontal_alignment = 1
+
+[node name="true button_challengepack_mode custom" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 310.0
+offset_top = 170.0
+offset_right = 650.0
+offset_bottom = 193.0
+
+[node name="button class_challengepack_mode custom" type="Node" parent="true button_challengepack_mode custom" node_paths=PackedStringArray("ui")]
+script = ExtResource("8_dan4x")
+alias = "challengepack_mode"
+isActive = true
+isDynamic = true
+ui = NodePath("../../button_challengepack_mode custom")
+playing = true
+ui_opacity_active = 0.5
+
+[node name="button_challengepack_items custom" type="Label" parent="."]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 960.0
+offset_bottom = 239.0
+scale = Vector2(0.760005, 1)
+pivot_offset = Vector2(480, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_7yqn7")
+theme_override_font_sizes/font_size = 26
+text = "ITEMS VISIBILITY: DEFAULT"
+horizontal_alignment = 1
+
+[node name="true button_challengepack_items custom" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 312.0
+offset_top = 205.0
+offset_right = 651.0
+offset_bottom = 229.0
+
+[node name="button class_challengepack_items custom" type="Node" parent="true button_challengepack_items custom" node_paths=PackedStringArray("ui")]
+script = ExtResource("8_dan4x")
+alias = "challengepack_items"
+isActive = true
+isDynamic = true
+ui = NodePath("../../button_challengepack_items custom")
+playing = true
+ui_opacity_active = 0.5
+
+[node name="button_challengepack_shuffle custom" type="Label" parent="."]
+layout_mode = 0
+offset_top = 235.0
+offset_right = 960.0
+offset_bottom = 274.0
+scale = Vector2(0.760005, 1)
+pivot_offset = Vector2(480, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_7yqn7")
+theme_override_font_sizes/font_size = 26
+text = "SHUFFLE BULLETS: YES"
+horizontal_alignment = 1
+
+[node name="true button_challengepack_shuffle custom" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 344.0
+offset_top = 240.0
+offset_right = 616.0
+offset_bottom = 263.0
+
+[node name="button class_challengepack_shuffle custom" type="Node" parent="true button_challengepack_shuffle custom" node_paths=PackedStringArray("ui")]
+script = ExtResource("8_dan4x")
+alias = "challengepack_shuffle"
+isActive = true
+isDynamic = true
+ui = NodePath("../../button_challengepack_shuffle custom")
+playing = true
+ui_opacity_active = 0.5
+
+[node name="button_challengepack_turn custom" type="Label" parent="."]
+layout_mode = 0
+offset_top = 305.0
+offset_right = 960.0
+offset_bottom = 344.0
+scale = Vector2(0.760005, 1)
+pivot_offset = Vector2(480, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_7yqn7")
+theme_override_font_sizes/font_size = 26
+text = "FIRST TURN: ALWAYS FIRST"
+horizontal_alignment = 1
+
+[node name="true button_challengepack_turn custom" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 317.0
+offset_top = 310.0
+offset_right = 643.0
+offset_bottom = 333.0
+
+[node name="button class_challengepack_turn custom" type="Node" parent="true button_challengepack_turn custom" node_paths=PackedStringArray("ui")]
+script = ExtResource("8_dan4x")
+alias = "challengepack_turn"
+isActive = true
+isDynamic = true
+ui = NodePath("../../button_challengepack_turn custom")
+playing = true
+ui_opacity_active = 0.5

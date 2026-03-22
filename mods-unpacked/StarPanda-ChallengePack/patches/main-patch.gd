@@ -1,7 +1,8 @@
-extends "./patch.gd"
+extends "res://mods-unpacked/StarPanda-ChallengePack/patches/patch.gd"
 
+const id = "StarPanda-ChallengePack"
 const STPND_CHALLENGEPACK_LOG := "StarPanda-ChallengePack:MainPatch"
-const CPGameConfig = preload("../util/CPGameConfig.gd")
+const CPGameConfig = preload("res://mods-unpacked/StarPanda-ChallengePack/util/CPGameConfig.gd")
 
 var applied_main = false
 
@@ -23,14 +24,15 @@ func _apply(root: Node):
 	return true
 	
 func _spawn_protectors(root: Node):
-	var item_mode = ProjectSettings.get_setting("challengepack_item", 0)
+	var item_mode = mod_main.config_data.items
 	if (item_mode != CPGameConfig.ItemMode.HIDDEN):
 		return
 	
 	var parent = root.get_node("tabletop parent/main tabletop")
-	var protector = preload("../instances/protector.tscn")
+	var protector = preload("res://mods-unpacked/StarPanda-ChallengePack/instances/protector.tscn")
 	
 	var protectorObj = protector.instantiate()
+	protectorObj.position = Vector3(0.14, -0.04, 0.0)
 	parent.add_child(protectorObj)
 	ModLoaderLog.debug("Item covers instantiated", STPND_CHALLENGEPACK_LOG)
 	
@@ -38,13 +40,13 @@ func _spawn_protectors(root: Node):
 	
 func _register_death_listener(root: Node):
 	var deathManager = root.get_node("standalone managers/death manager")
-	deathManager.connect("cp_death", _on_deathmanager_death)
+	mod_main.connect("cp_death", _on_deathmanager_death)
 	ModLoaderLog.debug("Death signal connected", STPND_CHALLENGEPACK_LOG)
 	
 func _register_item_steal_listener(root: Node):
 	var itemManager = root.get_node("standalone managers/item manager")
-	itemManager.connect("cp_steal_start", func(): _on_itemmanager_steal_start(root))
-	itemManager.connect("cp_steal_end", func(): _on_itemmanager_steal_end(root))
+	mod_main.connect("cp_steal_start", func(): _on_itemmanager_steal_start(root))
+	mod_main.connect("cp_steal_end", func(): _on_itemmanager_steal_end(root))
 	ModLoaderLog.debug("Item steal signal connected", STPND_CHALLENGEPACK_LOG)
 	
 func _replace_shell_animations(root: Node):
@@ -52,7 +54,7 @@ func _replace_shell_animations(root: Node):
 	var animationPlayer = shellSpawner.anim_compartment
 	var animationLibrary = animationPlayer.get_animation_library("")
 	
-	var currentMode = ProjectSettings.get_setting("challengepack_mode", 0)
+	var currentMode = mod_main.config_data.mode
 	if (currentMode != CPGameConfig.GameMode.HIDDEN):
 		if (animationLibrary.has_animation("show shells blocked")):
 			animationLibrary.rename_animation("show shells blocked", "show shells")

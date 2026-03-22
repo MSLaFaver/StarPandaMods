@@ -1,21 +1,29 @@
 {
-  "name": "ChallengePack",
-  "namespace": "StarPanda",
-  "version_number": "1.4.2",
-  "description": "No mercy, now game become very dangerous! Test your luck dancing on the edge of life and death!",
-  "website_url": "https://github.com/StarPandaBeg/ChallengePack",
-  "dependencies": [],
-  "extra": {
-    "godot": {
-      "compatible_mod_loader_version": ["4.0.0"],
-      "compatible_game_version": ["1.2.0", "1.2.1", "1.2.2"],
-      "authors": ["StarPanda"],
-      "tags": [],
-      "description_rich": "",
-      "optional_dependencies": [],
-      "load_before": [],
-      "incompatibilities": [],
-      "config_schema": {}
-    }
-  }
+	"name": "ChallengePack",
+	"namespace": "StarPanda",
+	"version_number": "1.4.2",
+	"description": "No mercy. The game is now very dangerous! Test your luck dancing on the edge of life and death!",
+	"website_url": "https://github.com/StarPandaBeg/ChallengePack",
+	"dependencies": ["MSLaFaver-ModMenu"],
+	"extra": {
+	"godot": {
+		"compatible_mod_loader_version": ["7.0.1"],
+		"compatible_game_version": ["1.2.2", "2.2.0"],
+		"authors": ["StarPanda"],
+		"tags": [],
+		"description_rich": "",
+		"optional_dependencies": [],
+		"load_before": [],
+		"incompatibilities": [],
+		"config_schema": {
+				"type": "object",
+				"properties": {
+					"unused": {
+						"type": "boolean",
+						"default": false
+					}
+				}
+			}
+		}
+	}
 }

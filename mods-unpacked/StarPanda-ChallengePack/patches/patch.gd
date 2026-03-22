@@ -1,5 +1,6 @@
 class_name ScenePatch
 
+var mod_main
 var scene_name: String = ""
 var applied: bool = false
 var repeatable: bool = false
